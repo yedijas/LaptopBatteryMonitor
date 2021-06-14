@@ -12,12 +12,21 @@ namespace LaptopBatteryMonitor
 {
     public partial class LaptopBatteryMonitor : Form
     {
-        private Timer minimizeTimer = new Timer();
+        #region Vars and Initialization
+        private readonly Timer minimizeTimer = new Timer();
         public LaptopBatteryMonitor()
         {
             InitializeComponent();
-        }
 
+            notifyIcon.ContextMenuStrip = new ContextMenuStrip();
+            notifyIcon.ContextMenuStrip.Items.Add("Exit", null, this.ExitMenu_Click);
+        } 
+        #endregion
+
+        #region Main Methods
+        /// <summary>
+        /// This part will force you to close the annoying message box.
+        /// </summary>
         private void CheckBatteryStatus()
         {
             PowerStatus pw = SystemInformation.PowerStatus;
@@ -38,22 +47,40 @@ namespace LaptopBatteryMonitor
             // not charged and low battery
             if (pw.PowerLineStatus.Equals(PowerLineStatus.Offline) && (percentage <= 10 || minutesRemain <= 10))
             {
-                this.Show();
-                MessageBox.Show("Please charge the battery.");
+                ShowTheForm();
+                MessageBox.Show("Please charge the battery.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
             // charged and high battery
-            else if (pw.PowerLineStatus.Equals(PowerLineStatus.Online) && (percentage >= 98))
+            else if (pw.PowerLineStatus.Equals(PowerLineStatus.Online) && (percentage >= 99))
             {
-                this.Show();
-                MessageBox.Show("Battery full.");
+                ShowTheForm();
+                MessageBox.Show("Battery full.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
             lblPower.Text = minutesRemain.ToString() + " minutes";
-            lblPercentage.Text = percentage.ToString();
+            lblPercentage.Text = percentage.ToString() + "%";
+        }
+
+        /// <summary>
+        /// Enforce this form to show up even above your games.
+        /// </summary>
+        private void ShowTheForm()
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.BringToFront();
+            this.TopMost = true;
+            this.Focus();
+        }
+        #endregion
+
+        #region Events
+        private void ExitMenu_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void LaptopBatteryMonitor_Load(object sender, EventArgs e)
         {
-            CheckBatteryStatus();
             powerTimer.Enabled = true;
         }
 
@@ -78,12 +105,14 @@ namespace LaptopBatteryMonitor
 
         private void LaptopBatteryMonitor_Shown(object sender, EventArgs e)
         {
+            CheckBatteryStatus();
             if (this.WindowState == FormWindowState.Normal)
             {
-                minimizeTimer.Interval = 5000;
+                minimizeTimer.Interval = 10000;
                 minimizeTimer.Tick += minimizeTimer_Tick;
                 minimizeTimer.Start();
             }
-        }
+        } 
+        #endregion
     }
 }
