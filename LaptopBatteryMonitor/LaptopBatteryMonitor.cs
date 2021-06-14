@@ -45,7 +45,7 @@ namespace LaptopBatteryMonitor
                     break;
             }
             // not charged and low battery
-            if (pw.PowerLineStatus.Equals(PowerLineStatus.Offline) && (percentage <= 10 || minutesRemain <= 10))
+            if (pw.PowerLineStatus.Equals(PowerLineStatus.Offline) && pw.BatteryLifeRemaining > -1 && (percentage <= 10 || minutesRemain <= 10))
             {
                 ShowTheForm();
                 MessageBox.Show("Please charge the battery.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
