@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaptopBatteryMonitor", "LaptopBatteryMonitor\LaptopBatteryMonitor.csproj", "{E4FAC74D-1E19-4F33-BC59-8B4C73E76FCE}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer.LaptopBatteryMonitor", "Installer.LaptopBatteryMonitor\Installer.LaptopBatteryMonitor.vdproj", "{12799A27-3B32-4263-B525-9784826935BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{E4FAC74D-1E19-4F33-BC59-8B4C73E76FCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4FAC74D-1E19-4F33-BC59-8B4C73E76FCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4FAC74D-1E19-4F33-BC59-8B4C73E76FCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12799A27-3B32-4263-B525-9784826935BA}.Debug|Any CPU.ActiveCfg = Debug
+		{12799A27-3B32-4263-B525-9784826935BA}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
