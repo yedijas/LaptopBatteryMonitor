@@ -28,13 +28,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_985F70399E636733B98905383AB2BC9A"
+        "OwnerKey" = "8:_92433FD4A8EA4AAD97A96ABCA174B631"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_92433FD4A8EA4AAD97A96ABCA174B631"
+        "OwnerKey" = "8:_985F70399E636733B98905383AB2BC9A"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -55,6 +55,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -214,15 +222,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Laptop Battery Monitor"
-        "ProductCode" = "8:{E9A1654E-016C-4CD5-8B6A-BC73B852BFD5}"
-        "PackageCode" = "8:{0F7C02A0-32FC-4DBD-93CF-ED5142151341}"
+        "ProductCode" = "8:{64C18CCC-436A-4D52-AA43-FC5ACC9053D0}"
+        "PackageCode" = "8:{F90A4500-CCCB-4AD2-8E53-70D4EEAF2A08}"
         "UpgradeCode" = "8:{96253121-E29D-4C35-930E-AF679A642C20}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:yedijas"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

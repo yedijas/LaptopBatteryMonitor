@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace LaptopBatteryMonitor
@@ -20,7 +14,7 @@ namespace LaptopBatteryMonitor
 
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
             notifyIcon.ContextMenuStrip.Items.Add("Exit", null, this.ExitMenu_Click);
-        } 
+        }
         #endregion
 
         #region Main Methods
@@ -29,6 +23,10 @@ namespace LaptopBatteryMonitor
         /// </summary>
         private void CheckBatteryStatus()
         {
+            int maxPercentage = Int32.Parse(ConfigurationManager.AppSettings["maxPercentage"]);
+            int minPercentage = Int32.Parse(ConfigurationManager.AppSettings["minPercentage"]);
+            int minMinutes = Int32.Parse(ConfigurationManager.AppSettings["minMinutes"]);
+
             PowerStatus pw = SystemInformation.PowerStatus;
             float percentage = pw.BatteryLifePercent * 100;
             int minutesRemain = pw.BatteryLifeRemaining / 60;
@@ -45,13 +43,13 @@ namespace LaptopBatteryMonitor
                     break;
             }
             // not charged and low battery
-            if (pw.PowerLineStatus.Equals(PowerLineStatus.Offline) && pw.BatteryLifeRemaining > -1 && (percentage <= 10 || minutesRemain <= 10))
+            if (pw.PowerLineStatus.Equals(PowerLineStatus.Offline) && pw.BatteryLifeRemaining > -1 && (percentage <= minPercentage || minutesRemain <= minMinutes))
             {
                 ShowTheForm();
                 MessageBox.Show("Please charge the battery.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
             // charged and high battery
-            else if (pw.PowerLineStatus.Equals(PowerLineStatus.Online) && (percentage >= 99))
+            else if (pw.PowerLineStatus.Equals(PowerLineStatus.Online) && (percentage >= maxPercentage))
             {
                 ShowTheForm();
                 MessageBox.Show("Battery full.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
@@ -112,7 +110,7 @@ namespace LaptopBatteryMonitor
                 minimizeTimer.Tick += minimizeTimer_Tick;
                 minimizeTimer.Start();
             }
-        } 
+        }
         #endregion
     }
 }
