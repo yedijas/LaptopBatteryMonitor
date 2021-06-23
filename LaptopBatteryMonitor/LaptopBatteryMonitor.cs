@@ -13,6 +13,8 @@ namespace LaptopBatteryMonitor
             InitializeComponent();
 
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
+            notifyIcon.ContextMenuStrip.Items.Add("Pause", null, this.PauseMenu_Click);
+            notifyIcon.ContextMenuStrip.Items.Add("Resume", null, this.ResumeMenu_Click);
             notifyIcon.ContextMenuStrip.Items.Add("Exit", null, this.ExitMenu_Click);
         }
         #endregion
@@ -75,6 +77,17 @@ namespace LaptopBatteryMonitor
         private void ExitMenu_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void PauseMenu_Click(object sender, EventArgs e)
+        {
+            powerTimer.Stop();
+            minimizeTimer.Stop();
+        }
+        private void ResumeMenu_Click(object sender, EventArgs e)
+        {
+            powerTimer.Start();
+            minimizeTimer.Start();
         }
 
         private void LaptopBatteryMonitor_Load(object sender, EventArgs e)
