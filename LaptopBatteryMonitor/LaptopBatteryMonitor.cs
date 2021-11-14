@@ -119,7 +119,7 @@ namespace LaptopBatteryMonitor
             CheckBatteryStatus();
             if (this.WindowState == FormWindowState.Normal)
             {
-                minimizeTimer.Interval = 10000;
+                minimizeTimer.Interval = 60000;
                 minimizeTimer.Tick += minimizeTimer_Tick;
                 minimizeTimer.Start();
             }

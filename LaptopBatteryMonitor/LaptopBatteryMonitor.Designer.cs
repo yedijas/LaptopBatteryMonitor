@@ -97,7 +97,7 @@ namespace LaptopBatteryMonitor
             // 
             // powerTimer
             // 
-            this.powerTimer.Interval = 5000;
+            this.powerTimer.Interval = 60000;
             this.powerTimer.Tick += new System.EventHandler(this.powerTimer_Tick);
             // 
             // notifyIcon
