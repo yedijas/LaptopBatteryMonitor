@@ -15,8 +15,10 @@ namespace LaptopBatteryMonitor
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
             notifyIcon.ContextMenuStrip.Items.Add("Pause", null, this.PauseMenu_Click);
             notifyIcon.ContextMenuStrip.Items.Add("Resume", null, this.ResumeMenu_Click);
+            notifyIcon.ContextMenuStrip.Items.Add("Battery Life", null, this.BatteryLifeMenu_Click);
             notifyIcon.ContextMenuStrip.Items.Add("Exit", null, this.ExitMenu_Click);
         }
+        private bool isBatteryLifeImportant = true;
         #endregion
 
         #region Main Methods
@@ -29,6 +31,11 @@ namespace LaptopBatteryMonitor
             int minPercentage = Int32.Parse(ConfigurationManager.AppSettings["minPercentage"]);
             int minMinutes = Int32.Parse(ConfigurationManager.AppSettings["minMinutes"]);
 
+            // this will cause the stop on battery life
+            if (isBatteryLifeImportant)
+            {
+                maxPercentage = Int32.Parse(ConfigurationManager.AppSettings["maxLife"]);
+            }
             PowerStatus pw = SystemInformation.PowerStatus;
             float percentage = pw.BatteryLifePercent * 100;
             int minutesRemain = pw.BatteryLifeRemaining / 60;
@@ -84,6 +91,12 @@ namespace LaptopBatteryMonitor
             powerTimer.Stop();
             minimizeTimer.Stop();
         }
+
+        private void BatteryLifeMenu_Click(object sender, EventArgs e)
+        {
+            isBatteryLifeImportant = !isBatteryLifeImportant;
+        }
+
         private void ResumeMenu_Click(object sender, EventArgs e)
         {
             powerTimer.Start();
@@ -119,7 +132,7 @@ namespace LaptopBatteryMonitor
             CheckBatteryStatus();
             if (this.WindowState == FormWindowState.Normal)
             {
-                minimizeTimer.Interval = 60000;
+                minimizeTimer.Interval = 10000;
                 minimizeTimer.Tick += minimizeTimer_Tick;
                 minimizeTimer.Start();
             }

@@ -21,20 +21,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_985F70399E636733B98905383AB2BC9A"
-        "OwnerKey" = "8:_92433FD4A8EA4AAD97A96ABCA174B631"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_92433FD4A8EA4AAD97A96ABCA174B631"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_985F70399E636733B98905383AB2BC9A"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -132,32 +120,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_985F70399E636733B98905383AB2BC9A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C946A6AAEB6A4A5A849110FC598206B8"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -225,15 +187,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Laptop Battery Monitor"
-        "ProductCode" = "8:{69ACE6EB-A98C-42D9-97F2-987D8B7110A5}"
-        "PackageCode" = "8:{5B255DD7-D382-42F5-94C5-9862F6DE42B0}"
+        "ProductCode" = "8:{8ADBD541-3F61-4CB6-8230-3F0A936C07F9}"
+        "PackageCode" = "8:{DAFE7DF0-B66C-4D4F-A195-5C4E80B505C1}"
         "UpgradeCode" = "8:{96253121-E29D-4C35-930E-AF679A642C20}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.4"
+        "ProductVersion" = "8:1.0.5"
         "Manufacturer" = "8:yedijas"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
